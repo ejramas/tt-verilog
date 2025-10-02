@@ -35,7 +35,7 @@ COMPILE_ARGS 		+= -I$(SRC_DIR)
 
 # Include the testbench sources:
 VERILOG_SOURCES += $(PWD)/tb.v
-TOPLEVEL = tb
+TOPLEVEL = tb_counter_8bit
 
 # MODULE is the basename of the Python test file
 MODULE = test_counter_8bit
