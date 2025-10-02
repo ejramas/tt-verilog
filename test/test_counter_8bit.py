@@ -27,7 +27,7 @@ async def test_project(dut):
     dut._log.info("----- Testing Start -----")
 
     # Test 1: Count for 10 cycles
-    await ClockCycles(dut.clk, 3)
+    await ClockCycles(dut.clk, 4)
     dut._log.info("1. Output Value should be: 3, is: %d", dut.data_out.value)
 
     # Test 2: Asynchronous Reset
@@ -40,7 +40,7 @@ async def test_project(dut):
     await ClockCycles(dut.clk, 1)
     dut.data_in.value = 100
     dut.load.value = 1
-    await ClockCycles(dut.clk, 1)
+    await ClockCycles(dut.clk, 2)
     dut.load.value = 0
     dut._log.info("3. Output Value should be: 100, is: %d", dut.data_out.value)
 
