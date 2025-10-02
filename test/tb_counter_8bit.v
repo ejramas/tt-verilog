@@ -21,8 +21,18 @@ module tb_counter ();
   reg [7:0]   data_in;
   reg         out_en;
   wire [7:0]  data_out;
+`ifdef GL_TEST
+  wire VPWR = 1'b1;
+  wire VGND = 1'b0;
+`endif
 
   counter_8bit user_project (
+
+`ifdef GL_TEST
+      .VPWR(VPWR),
+      .VGND(VGND),
+`endif
+     
       .clk      (clk),
       .rst_n    (rst_n),
       .en       (en),
