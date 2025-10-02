@@ -12,7 +12,7 @@
 
 `default_nettype none
 
-module counter_8_bit (
+module counter_8bit (
     input  wire        clk,      // clock
     input  wire        rst_n,    // async reset, active low
     input  wire        en,       // count enable
