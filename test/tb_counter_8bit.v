@@ -9,7 +9,7 @@ module tb_counter ();
   // Dump the signals to a VCD file. You can view it with gtkwave or surfer.
   initial begin
     $dumpfile("tb.vcd");
-    $dumpvars(0, tb);
+    $dumpvars(0, tb_counter);
     #1;
   end
 
@@ -22,7 +22,7 @@ module tb_counter ();
   reg         out_en;
   wire [7:0]  data_out;
 
-  counter_8_bit user_project (
+  counter_8bit user_project (
       .clk      (clk),
       .rst_n    (rst_n),
       .en       (en),
