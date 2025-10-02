@@ -37,7 +37,7 @@ async def test_project(dut):
     dut.rst_n.value = 1
 
     # Test 3: Load value 100
-    await ClockCycles(dut.clk, 10)
+    await ClockCycles(dut.clk, 100)
     dut.data_in.value = 100
     dut.load.value = 1
     await ClockCycles(dut.clk, 1)
@@ -47,7 +47,7 @@ async def test_project(dut):
     # Test 4: Tri-state test
     dut.out_en.value = 0
     await ClockCycles(dut.clk, 1)
-    dut._log.info("4. Output Value should be: High Z, is: %d", dut.data_out.value)
+    dut._log.info("4. Output Value should be: ZZZZZZZZ, is: %s", dut.data_out.value)
 
     dut._log.info("----- Test Complete -----")
 
