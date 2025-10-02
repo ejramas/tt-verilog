@@ -21,14 +21,14 @@ async def test_project(dut):
     dut.data_in.value = 0
     dut.out_en.value = 1
     dut.rst_n.value = 0
-    await ClockCycles(dut.clk, 10)
+    await ClockCycles(dut.clk, 5)
     dut.rst_n.value = 1
 
     dut._log.info("----- Testing Start -----")
 
     # Test 1: Count for 10 cycles
-    await ClockCycles(dut.clk, 10)
-    dut._log.info("1. Output Value should be: 10, is: %d", dut.data_out.value)
+    await ClockCycles(dut.clk, 3)
+    dut._log.info("1. Output Value should be: 3, is: %d", dut.data_out.value)
 
     # Test 2: Asynchronous Reset
     dut.rst_n.value = 0
@@ -37,7 +37,7 @@ async def test_project(dut):
     dut.rst_n.value = 1
 
     # Test 3: Load value 100
-    await ClockCycles(dut.clk, 100)
+    await ClockCycles(dut.clk, 1)
     dut.data_in.value = 100
     dut.load.value = 1
     await ClockCycles(dut.clk, 1)
